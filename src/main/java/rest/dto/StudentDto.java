@@ -5,14 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudentDto {
 
-    private Integer id;
+    private String id;
+    private String number;
     private String name;
-    private LocalDate birthDate;
+    private String birthDate;
 
 }

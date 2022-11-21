@@ -8,6 +8,7 @@ import rest.service.HtmlPageService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * Класс в котором описываются http методы (АПИ), методы вызываются с фронта
@@ -26,7 +27,7 @@ public class Controller {
     public ModelAndView welcome() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("welcome"); // указываю какую страницу вернуть
-        modelAndView.getModel().put("message", "ПРИВЕТ"); // иньекция значений на страницу
+        modelAndView.getModel().put("message", "ПРИВЕТ asdasdasdasdasd"); // иньекция значений на страницу
         return modelAndView;
     }
 
@@ -49,5 +50,12 @@ public class Controller {
     @PostMapping(value = "/add-student")
     public ModelAndView addStudent(StudentDto studentDto) {
         return htmlPageService.createStudent(studentDto);
+    }
+
+    @GetMapping(value = "/remove/{id}")
+    public void removeStudent(@PathVariable(value = "id") UUID id, HttpServletResponse response, ModelAndView modelAndView) throws IOException {
+        modelAndView.clear();
+        htmlPageService.removeStudent(id);
+        response.sendRedirect("/all-students");
     }
 }

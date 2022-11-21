@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 import rest.dto.StudentDto;
 
+import java.util.UUID;
+
 @Service
 public class HtmlPageService {
 
@@ -19,5 +21,9 @@ public class HtmlPageService {
 
     public ModelAndView createStudent(StudentDto studentDto) {
         return studentService.createStudent(studentDto);
+    }
+
+    public void removeStudent(UUID id) {
+        studentService.removeStudentById(id);
     }
 }

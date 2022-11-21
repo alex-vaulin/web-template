@@ -15,8 +15,8 @@
     <h2>Add new Student</h2>
     <form action="/add-student" method="post" th:object="${studentDto}">
         <div class="form-group">
-            <label for="exampleId">ID</label>
-            <input type="number" class="form-control" id="exampleId" name="id" placeholder="1">
+            <label for="exampleNumber">Number</label>
+            <input type="text" class="form-control" id="exampleNumber" name="number" placeholder="Номер студенческого билета">
         </div>
         <div class="form-group">
             <label for="exampleInputName">Name</label>
@@ -24,8 +24,9 @@
         </div>
         <div class="form-group">
             <label for="exampleInputBirthDate">Birth Date</label>
-            <input type="date" class="form-control" id="exampleInputBirthDate" name="birthDate" >
+            <input type="text" class="form-control" id="exampleInputBirthDate" name="birthDate">
         </div>
+
         <div class="text-center">
             <button class="btn btn-success" type="submit">ADD</button>
             <a href="/all-students" class="btn btn-light" role="button">Back</a>

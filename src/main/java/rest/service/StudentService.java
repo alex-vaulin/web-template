@@ -8,6 +8,7 @@ import rest.persistence.repository.StudentRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class StudentService {
@@ -20,7 +21,8 @@ public class StudentService {
 
     public ModelAndView createStudent(StudentDto studentDto) {
         Student student = new Student();
-        student.setId(studentDto.getId());
+        student.setId(UUID.randomUUID());
+        student.setNumber(studentDto.getNumber());
         student.setName(studentDto.getName());
         student.setBirthDate(studentDto.getBirthDate());
 
@@ -34,7 +36,8 @@ public class StudentService {
         List<StudentDto> resultList = new ArrayList<>();
         for (Student student : students) {
             StudentDto studentDto = new StudentDto();
-            studentDto.setId(student.getId());
+            studentDto.setId(student.getId().toString());
+            studentDto.setNumber(student.getNumber());
             studentDto.setName(student.getName());
             studentDto.setBirthDate(student.getBirthDate());
             resultList.add(studentDto);
@@ -45,8 +48,13 @@ public class StudentService {
 
     private ModelAndView createAndFillModel(List<StudentDto> studentDtos) {
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.clear();
         modelAndView.getModel().put("listStudents", studentDtos);
         modelAndView.setViewName("studets-page");
         return modelAndView;
+    }
+
+    public void removeStudentById(UUID id) {
+        studentRepository.deleteById(id);
     }
 }

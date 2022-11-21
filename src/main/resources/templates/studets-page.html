@@ -20,6 +20,7 @@
                 <th> Id </th>
                 <th> Name </th>
                 <th> Birth Day </th>
+                <th> Number </th>
             </tr>
             </thead>
             <tbody>
@@ -30,6 +31,9 @@
                 <td><span th:text="${student.id}"> Title </span></td>
                 <td><span th:text="${student.name}"> Name </span></td>
                 <td><span th:text="${student.birthDate}"> Day </span></td>
+                <td><span th:text="${student.number}"> № билета </span></td>
+                <td><a th:href="${'/remove/' + student.id}" text="remove" class="btn btn-warn"> remove </a></td>
+
             </tr>
             </tbody>
         </table>
