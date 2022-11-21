@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Add</title>
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <body>
-<h2>Add new Student</h2>
+    <h2>Add new Student</h2>
 
-<a href="/all-students">Back</a>
+<form action="/add-student" onsubmit="">
+    <a href="/all-students">Back</a>
+</form>
 </body>
 </html>

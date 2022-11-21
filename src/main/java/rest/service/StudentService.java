@@ -32,7 +32,6 @@ public class StudentService {
         return createAndFillModel(resultList);
     }
 
-
     private ModelAndView createAndFillModel(List<StudentDto> studentDtos) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.getModel().put("listStudents", studentDtos);

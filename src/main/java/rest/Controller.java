@@ -10,7 +10,7 @@ import java.io.IOException;
 
 /**
  * Класс в котором описываются http методы (АПИ), методы вызываются с фронта
- * **/
+ **/
 @RestController
 public class Controller {
 
@@ -20,7 +20,7 @@ public class Controller {
     /**
      * Пример метода который будет вызываться по URL: http://localhost:8080
      * метод возвращает html страницу, "resources/templates/welcome.html"
-     * **/
+     **/
     @GetMapping(value = "/")
     public ModelAndView welcome() {
         ModelAndView modelAndView = new ModelAndView();
@@ -32,7 +32,7 @@ public class Controller {
     /**
      * Пример метода который будет вызываться по URL: http://localhost:8080/select/{имя_таблицы_в_которой_хотите_посмотреть_данные}
      * метод возвращает html страницу, "resources/templates/show_table.html"
-     * **/
+     **/
     @GetMapping(value = "/all-students")
     public ModelAndView showStudents() {
         return htmlPageService.createStudentPage();
@@ -42,7 +42,8 @@ public class Controller {
     public ModelAndView newStudent() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("new-student"); // указываю какую страницу вернуть
-        return modelAndView;    }
+        return modelAndView;
+    }
 
     @PostMapping(value = "/add-student")
     public void addStudent(HttpServletResponse response) throws IOException {
