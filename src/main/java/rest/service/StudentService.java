@@ -18,6 +18,17 @@ public class StudentService {
         this.studentRepository = userRepository;
     }
 
+    public ModelAndView createStudent(StudentDto studentDto) {
+        Student student = new Student();
+        student.setId(studentDto.getId());
+        student.setName(studentDto.getName());
+        student.setBirthDate(studentDto.getBirthDate());
+
+        studentRepository.save(student);
+
+        return getAllStudents();
+    }
+
     public ModelAndView getAllStudents() {
         List<Student> students = studentRepository.findAllStudents();
         List<StudentDto> resultList = new ArrayList<>();

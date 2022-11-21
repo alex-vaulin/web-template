@@ -13,6 +13,9 @@ repositories {
 
 dependencies {
     def springBootVersion = "2.4.6"
+    annotationProcessor "org.projectlombok:lombok"
+    implementation "org.projectlombok:lombok:1.18.24"
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation group: 'org.springframework', name: 'spring-jdbc', version: '5.3.22'

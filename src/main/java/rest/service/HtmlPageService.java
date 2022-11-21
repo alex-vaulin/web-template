@@ -2,6 +2,7 @@ package rest.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
+import rest.dto.StudentDto;
 
 @Service
 public class HtmlPageService {
@@ -14,5 +15,9 @@ public class HtmlPageService {
 
     public ModelAndView createStudentPage() {
         return studentService.getAllStudents();
+    }
+
+    public ModelAndView createStudent(StudentDto studentDto) {
+        return studentService.createStudent(studentDto);
     }
 }
