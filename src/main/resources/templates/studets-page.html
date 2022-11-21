@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Web example</title>
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+
+<main role="main" class="container" id="test">
+    <h2>Students table</h2>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th> Id </th>
+                <th> Name </th>
+                <th> Birth Day </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${listStudents.empty}">
+                <td colspan="2"> No Books Available </td>
+            </tr>
+            <tr th:each="student : ${listStudents}">
+                <td><span th:text="${student.id}"> Title </span></td>
+                <td><span th:text="${student.name}"> Name </span></td>
+                <td><span th:text="${student.birthDate}"> Day </span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <a href="/add-student" type="GET">Add student</a>
+    </div>
+
+</main>
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
