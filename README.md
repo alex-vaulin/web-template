@@ -12,6 +12,10 @@ birthDate DATE,
 number varchar(32),
 primary key (id)
 );
+
+# Добавление ролей
+INSERT INTO public.t_role(id, name)
+  VALUES (1, 'ROLE_USER'), (2, 'ROLE_ADMIN');
 ```
  
 Ссылки :

@@ -19,7 +19,7 @@ public class StudentService {
         this.studentRepository = userRepository;
     }
 
-    public ModelAndView createStudent(StudentDto studentDto) {
+    public List<StudentDto> createStudent(StudentDto studentDto) {
         Student student = new Student();
         student.setId(UUID.randomUUID());
         student.setNumber(studentDto.getNumber());
@@ -31,7 +31,7 @@ public class StudentService {
         return getAllStudents();
     }
 
-    public ModelAndView getAllStudents() {
+    public List<StudentDto> getAllStudents() {
         List<Student> students = studentRepository.findAllStudents();
         List<StudentDto> resultList = new ArrayList<>();
         for (Student student : students) {
@@ -43,15 +43,7 @@ public class StudentService {
             resultList.add(studentDto);
         }
 
-        return createAndFillModel(resultList);
-    }
-
-    private ModelAndView createAndFillModel(List<StudentDto> studentDtos) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.clear();
-        modelAndView.getModel().put("listStudents", studentDtos);
-        modelAndView.setViewName("studets-page");
-        return modelAndView;
+        return resultList;
     }
 
     public void removeStudentById(UUID id) {
